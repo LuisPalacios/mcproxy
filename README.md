@@ -105,25 +105,57 @@ which could help you with this problem.
 To run the Mcproxy you need to create a valid configuration file.  There is an
 example in the project folder ([mcproxy.conf](mcproxy/mcproxy.conf)).
 
-*  To run the Mcproxy in the background type the following command:
+*  Prepare the configuration file: `/etc/mcproxy.conf`
 
-```zsh
-sudo nohup mcproxy -f <path/to/config_file> &
+```conf
+######################################
+##-- mcproxy configuration script --##
+######################################
+
+#protocol MLDv2; #IPv6
+protocol IGMPv3; #IPv4
+
+pinstance myProxy: vlan2 ==> vlan100;
+
+#
+# This confiugration example creates
+# a multicast proxy for ipv4 with the
+# upstream vlan2 and one downstream vlan100
+#
+#              |
+#              |
+#       +------+-----+
+#       |    vlan2   |
+#       |            |
+#       |   mcProxy  |
+#       |            |
+#       |   vlan100  |
+#       +------+-----+
+#              |
+#              |
+#
 ```
 
-*  To run the mcprocy with all available status and debug messages:
+
+*  Run the Mcproxy in the background:
 
 ```zsh
-sudo mcproxy -dsvv -f <path/to/config_file>
+sudo nohup /usr/local/bin/mcproxy -f /etc/mcproxy.conf &
 ```
 
-For more information see `mcproxy -h` or visit our project page.
+*  Run mcprocy with all available status and debug messages:
+
+```zsh
+sudo /usr/local/bin/mcproxy -dsvv -f /etc/mcproxy.conf
+```
+
+For more information see `mcproxy-bin -h` or visit our project page.
 
 
 Contact
 =======
 
-Project page: http://mcproxy.realmv6.org/
+Project page: [http://mcproxy.realmv6.org/](http://mcproxy.realmv6.org/)
 
 Mailing list: multicast-proxy@googlegroups.com
 
