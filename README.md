@@ -33,6 +33,10 @@ following command:
         apt-get install qt5-qmake
         apt-get install qt5-default
 
+  alternative if qt5-default not found: 
+
+        apt install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
+
   older systems: 
 
         apt-get install qt4-qmake
