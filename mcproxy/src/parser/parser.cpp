@@ -128,7 +128,7 @@ void parser::parse_instance_definition(inst_def_set& ids)
                     try {
                         table_number = atoi(m_current_token.get_string().c_str());
                         user_selected_table_number = true;
-                    } catch (std::logic_error e) {
+                    } catch (std::logic_error& e) {
                         HC_LOG_ERROR("failed to parse line " << m_current_line << " table number: " << table_number << " is not a number");
                         throw "failed to parse config file";
                     }

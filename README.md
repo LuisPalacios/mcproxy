@@ -25,21 +25,9 @@ Requirements
 ============
 *  A g++ version equal or higher **4.8** is required.
 
-*  To generate a makefile, qmake must be installed. This can be done with the
-following command:
-  
-  newer systems: 
+*  To generate a Makefile, cmake must be installed. 
 
-        apt-get install qt5-qmake
-        apt-get install qt5-default
-
-  alternative if qt5-default not found: 
-
-        apt install qtbase5-dev qtchooser qt5-qmake qtbase5-dev-tools
-
-  older systems: 
-
-        apt-get install qt4-qmake
+        apt install cmake -y
 
 *  To use the IPv6 functionality the kernel has to be configured and compiled
 with the experimental kernel feature _IPv6: multicast routing_.  For more
@@ -63,30 +51,27 @@ the following command:
 Compilation
 ===========
 
-Build
+Clone
+
    git clone https://github.com/LuisPalacios/mcproxy.git
+
+Build
+
    cd mcproxy
    cmake .
    cmake --build .
 
-Build Mcproxy in release mode:
-
-    cd mcproxy/
-    qmake 
-    make
-
-Build Mcproxy in debug mode:
-
-    cd mcproxy/
-    qmake CONFIG+=debug
-    make
-
 
 Installation
 ============
-To copy Mcproxy to the system directory, run (optional):
 
-    make install
+It will be installed under `/usr/local/bin/mcproxy-bin`
+
+    % sudo make install
+    [100%] Built target mcproxy-bin
+    Install the project...
+    -- Install configuration: ""
+    -- Installing: /usr/local/bin/mcproxy-bin
 
 
 Documentation
@@ -99,11 +84,30 @@ docs/ directory after the execution of:
 
 Startup
 =======
-At first you should check the available kernel features of your system. Type
-the following command:
 
-    sudo mcproxy -c
-   
+At first you should check the available kernel features of your system. Type
+the following command: `sudo mcproxy -c`
+
+```zsh
+% sudo mcproxy-bin -c
+Check the currently available kernel features.
+ - root privileges: Ok!
+
+ - ipv4 multicast: Ok!
+ - ipv4 multiple routing tables: Ok!
+ - ipv4 routing tables: Ok!
+
+ - ipv4 mcproxy was able to join 20 groups successfully
+ - ipv4 mcproxy was able to set 40+ filters successfully (no limit found)
+
+ - ipv6 multicast: Ok!
+ - ipv6 multiple routing tables: Ok!
+ - ipv6 routing tables: Ok!
+
+ - ipv6 mcproxy was able to join 40+ groups successfully (no limit found)
+ - ipv6 mcproxy was able to set 40+ filters successfully (no limit found)
+ ``` 
+
 If a kernel feature you need is missing you have to reconfigure and recompile
 your linux kernel. In the debug folder is a [README](debug/README.md#kernel) file
 which could help you with this problem.
@@ -124,6 +128,7 @@ For more information see `mcproxy -h` or visit our project page.
 
 Contact
 =======
+
 Project page: http://mcproxy.realmv6.org/
 
 Mailing list: multicast-proxy@googlegroups.com
