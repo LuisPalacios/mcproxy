@@ -53,25 +53,30 @@ Compilation
 
 Clone
 
-   git clone https://github.com/LuisPalacios/mcproxy.git
+```zsh
+git clone https://github.com/LuisPalacios/mcproxy.git
+```
 
 Build
 
-   cd mcproxy
-   cmake .
-   cmake --build .
-
+```zsh
+cd mcproxy
+cmake .
+cmake --build .
+```
 
 Installation
 ============
 
 It will be installed under `/usr/local/bin/mcproxy-bin`
 
-    % sudo make install
-    [100%] Built target mcproxy-bin
-    Install the project...
-    -- Install configuration: ""
-    -- Installing: /usr/local/bin/mcproxy-bin
+```zsh
+% sudo make install
+[100%] Built target mcproxy-bin
+Install the project...
+-- Install configuration: ""
+-- Installing: /usr/local/bin/mcproxy-bin
+```
 
 
 Documentation
@@ -79,34 +84,19 @@ Documentation
 Mcproxy includes a HTML documentation. The documentation will be located in the
 docs/ directory after the execution of:
 
-    make doc
-
+```zsh
+make doc
+```
 
 Startup
 =======
 
 At first you should check the available kernel features of your system. Type
-the following command: `sudo mcproxy -c`
+the following command:
 
 ```zsh
 % sudo mcproxy-bin -c
-Check the currently available kernel features.
- - root privileges: Ok!
-
- - ipv4 multicast: Ok!
- - ipv4 multiple routing tables: Ok!
- - ipv4 routing tables: Ok!
-
- - ipv4 mcproxy was able to join 20 groups successfully
- - ipv4 mcproxy was able to set 40+ filters successfully (no limit found)
-
- - ipv6 multicast: Ok!
- - ipv6 multiple routing tables: Ok!
- - ipv6 routing tables: Ok!
-
- - ipv6 mcproxy was able to join 40+ groups successfully (no limit found)
- - ipv6 mcproxy was able to set 40+ filters successfully (no limit found)
- ``` 
+```
 
 If a kernel feature you need is missing you have to reconfigure and recompile
 your linux kernel. In the debug folder is a [README](debug/README.md#kernel) file
@@ -117,11 +107,15 @@ example in the project folder ([mcproxy.conf](mcproxy/mcproxy.conf)).
 
 *  To run the Mcproxy in the background type the following command:
 
-        sudo nohup mcproxy -f <path/to/config_file> &
+```zsh
+sudo nohup mcproxy -f <path/to/config_file> &
+```
 
 *  To run the mcprocy with all available status and debug messages:
 
-        sudo mcproxy -dsvv -f <path/to/config_file>
+```zsh
+sudo mcproxy -dsvv -f <path/to/config_file>
+```
 
 For more information see `mcproxy -h` or visit our project page.
 
