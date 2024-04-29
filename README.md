@@ -62,6 +62,13 @@ the following command:
 
 Compilation
 ===========
+
+Build
+   git clone https://github.com/LuisPalacios/mcproxy.git
+   cd mcproxy
+   cmake .
+   cmake --build .
+
 Build Mcproxy in release mode:
 
     cd mcproxy/
